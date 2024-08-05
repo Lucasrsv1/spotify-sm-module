@@ -1,0 +1,37 @@
+{
+	"name": "spotify-sm-module",
+	"version": "0.0.1",
+	"description": "Módulo de controle do Spotify para o SpeakMaster",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon --ignore tokens.json index.js",
+		"generate-json": "npm run features && npm run commands && npm run preferences",
+		"features": "node generate-json/module-features.js",
+		"commands": "node generate-json/module-default-commands.js",
+		"preferences": "node generate-json/module-preferences.js"
+	},
+	"author": "Lucas Rassilan Vilanova",
+	"license": "ISC",
+	"dependencies": {
+		"chalk": "^4.1.2",
+		"console-stamp": "^3.1.2",
+		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
+		"dayjs": "^1.11.12",
+		"dotenv": "^16.4.5",
+		"express": "^4.19.2",
+		"morgan": "^1.10.0",
+		"open": "^10.1.0",
+		"querystring": "^0.2.1",
+		"request": "^2.88.2",
+		"speakmaster-module-builder": "^0.4.0",
+		"speakmaster-module-connection": "^0.0.1",
+		"spotify-web-api-node": "^5.0.2",
+		"string-similarity": "^4.0.4"
+	},
+	"devDependencies": {
+		"eslint": "^8.27.0",
+		"eslint-plugin-only-warn": "^1.1.0",
+		"nodemon": "^2.0.20"
+	}
+}
