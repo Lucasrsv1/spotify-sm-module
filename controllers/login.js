@@ -135,6 +135,10 @@ class Login {
 			spotifyAPI.setSpotifyAPI(spotifyWebApi, data.body);
 		} catch (error) {
 			console.error("Failed to restore Spotify API from JSON file:", error);
+
+			// Start login process since the saved tokens are invalid or expired
+			const { default: open } = await import("open");
+			open(process.env.SPOTIFY_LOGIN_URI);
 		}
 	}
 }

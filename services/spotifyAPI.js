@@ -295,7 +295,7 @@ class SpotifyAPI {
 	 * @returns {Promise<SpotifyApi.PlaylistTrackObject[]>}
 	 */
 	async #getPlaylistTracks (playlistID) {
-		const fields = "limit,next,items(track(name,id,album(name,id,images),artists))";
+		const fields = "limit,next,items(track(name,id,album(name,id,images),artists,duration_ms))";
 		return this.#paginationHandler(async offset => {
 			const tracks = await this.#spotifyApi.getPlaylistTracks(playlistID, { offset, fields, limit: 50 });
 
