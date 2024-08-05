@@ -150,6 +150,7 @@ class SpotifyAPI {
 					const data = await this.#searchTracks(searchStr);
 					const tracks = data.body.tracks.items.map(track => ({
 						track: {
+							duration_ms: track.duration_ms,
 							album: {
 								id: track.album.id,
 								name: track.album.name,
@@ -191,7 +192,7 @@ class SpotifyAPI {
 		try {
 			// Play the track that is most likely to be the one the user requested
 			const songToPlay = possibleSongs.length > 0 ? possibleSongs[0] : null;
-			if (songToPlay) {
+			if (songToPlay && songToPlay.track && songToPlay.track.id) {
 				if (onlyAddToQueue)
 					await this.addTrackToQueue(songToPlay.track.id);
 				else
