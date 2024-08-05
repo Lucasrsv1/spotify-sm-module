@@ -1,6 +1,6 @@
 {
 	"name": "spotify-sm-module",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Módulo de controle do Spotify para o SpeakMaster",
 	"main": "index.js",
 	"scripts": {
